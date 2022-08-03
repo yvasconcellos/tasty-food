@@ -6,7 +6,7 @@ import MyContext from '../context/MyContext';
 function FoodCard({ quantity, typeCard }) {
   const { redirectDetails, dataFiltered, loading } = useContext(MyContext);
   return (
-    <div className="d-flex mb-5 flex-wrap relative;">
+    <div className="flex mb-5 flex-wrap relative;">
       {loading ? <span className="loader" />
         : dataFiltered.map((item, index) => (
           index < quantity
@@ -16,7 +16,7 @@ function FoodCard({ quantity, typeCard }) {
             key={ typeCard === 'food'
               ? `${item.idMeal}${index}` : `${item.strDrink}${index}` }
             data-testid={ `${index}-recipe-card` }
-            className="w-50 d-flex flex-column card-image"
+            className="w-1/2 sm:w-1/4 xl:w-1/6 d-flex flex-column card-image"
             name={ typeCard === 'food' ? item.idMeal : item.idDrink }
             onClick={ () => {
               redirectDetails((typeCard === 'food' ? item.idMeal : item.idDrink),
