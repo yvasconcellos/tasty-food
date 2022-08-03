@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
@@ -53,67 +54,79 @@ function Recipe({ match: { params: { id } }, location: { pathname } }) {
       : dataRecipe[0] !== undefined
       && (
         <div
-          className="bg-slate-100"
+          className="bg-slate-100
+          "
         >
-          <img
-            className="w-screen
-            rounded-lg
-            "
-            data-testid="recipe-photo"
-            src={ dataRecipe[0].strMealThumb }
-            alt={ dataRecipe[0].strMeal }
-          />
           <div
-            className="d-flex justify-content-between
-          my-3
-          mx-2
+            className="md:flex
           "
           >
             <div
-              className="mx-3"
+              className="md:w-1/3
+            "
             >
-              <p
-                data-testid="recipe-title"
-                className="text-3xl m-0"
-              >
-                {dataRecipe[0].strMeal}
-              </p>
-              <p data-testid="recipe-category">
-                {dataRecipe[0].strCategory}
-              </p>
+              <img
+                className="w-screen
+            rounded-lg
+            "
+                data-testid="recipe-photo"
+                src={ dataRecipe[0].strMealThumb }
+                alt={ dataRecipe[0].strMeal }
+              />
             </div>
-            <ShareAndFavorite
-              linkCopy={ pathname }
-              type="food"
-              id={ id }
-              area={ dataRecipe[0].strArea }
-              category={ dataRecipe[0].strCategory }
-              alcoholic=""
-              name={ dataRecipe[0].strMeal }
-              image={ dataRecipe[0].strMealThumb }
-              testid="share-btn"
-              favtestid="favorite-btn"
-            />
-
-          </div>
-          <ul
-            className="mx-4"
-          >
-            <p
-              className="text-2xl"
+            <div
+              className="flex justify-between md:w-2/3
+              md:justify-start
+              flex-col
+              my-3 mx-2"
             >
-              Ingredients
-            </p>
-            {ingredientData.map((item, index) => (
-              <li
-                key={ item }
-                data-testid={ `${index}-ingredient-name-and-measure` }
+              <div className="flex justify-between mx-3">
+                <div>
+                  <p
+                    data-testid="recipe-title"
+                    className="text-3xl m-0"
+                  >
+                    {dataRecipe[0].strMeal}
+                  </p>
+                  <p data-testid="recipe-category">
+                    {dataRecipe[0].strCategory}
+                  </p>
+                </div>
+                <ShareAndFavorite
+                  linkCopy={ pathname }
+                  type="food"
+                  id={ id }
+                  area={ dataRecipe[0].strArea }
+                  category={ dataRecipe[0].strCategory }
+                  alcoholic=""
+                  name={ dataRecipe[0].strMeal }
+                  image={ dataRecipe[0].strMealThumb }
+                  testid="share-btn"
+                  favtestid="favorite-btn"
+                />
+
+              </div>
+              <ul
+                className="mx-3 md:mx-0"
               >
-                {`${item}`}
-              </li>))}
-          </ul>
+                <p
+                  className="text-2xl md:text-xl"
+                >
+                  Ingredients
+                </p>
+                {ingredientData.map((item, index) => (
+                  <li
+                    key={ item }
+                    className="md:text-sm"
+                    data-testid={ `${index}-ingredient-name-and-measure` }
+                  >
+                    {`${item}`}
+                  </li>))}
+              </ul>
+            </div>
+          </div>
           <div
-            className="mx-3
+            className="m-3
             text-justify
             "
           >
@@ -124,13 +137,13 @@ function Recipe({ match: { params: { id } }, location: { pathname } }) {
             </p>
             <p
               data-testid="instructions"
+              className="md:text-sm"
             >
               {dataRecipe[0].strInstructions}
             </p>
           </div>
           <div
-            className="flex justify-center
-            my-3"
+            className="my-3 videoWrapper"
           >
             {dataRecipe[0].strYoutube !== undefined
           && <iframe

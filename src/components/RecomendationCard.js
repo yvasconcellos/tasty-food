@@ -14,7 +14,10 @@ function RecomendationCard({ typeCard }) {
         index < SIX
         && (
           <div
-            className="mb-3 w-1/2
+            className="mb-3
+            min-w-[50%]
+            md:min-w-[33%]
+            lg:min-w-[25%]
             flex flex-col
             p-2
             "
