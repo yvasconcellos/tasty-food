@@ -53,7 +53,7 @@ function FavoriteAndDoneCard({ dataProps, pageProps }) {
   }, [dataProps]);
 
   return (
-    <>
+    <div className="flex flex-col items-center">
       <div
         className="flex flex-wrap m-1"
       >
@@ -102,13 +102,16 @@ function FavoriteAndDoneCard({ dataProps, pageProps }) {
         </button>
       </div>
       <div
-        className="d-flex flex-wrap
+        className="flex flex-wrap
+        justify-center
         "
       >
         {dataBase.map((item, index) => (
           <div
             className="flex
             bg-slate-200
+            sm:w-5/12
+            lg:w-3/12
             rounded-lg
             p-1
             m-2
@@ -223,7 +226,7 @@ function FavoriteAndDoneCard({ dataProps, pageProps }) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
