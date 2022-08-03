@@ -110,8 +110,7 @@ function FavoriteAndDoneCard({ dataProps, pageProps }) {
           <div
             className="flex
             bg-slate-200
-            sm:w-5/12
-            lg:w-3/12
+            sm:w-96
             rounded-lg
             p-1
             m-2

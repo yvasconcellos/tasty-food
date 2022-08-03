@@ -15,7 +15,7 @@ function Drinks() {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col items-center">
       <Header titlePage="Drinks" hasSearch />
       <Filter />
       <FoodCard
@@ -23,7 +23,7 @@ function Drinks() {
         typeCard="drink"
       />
       <Footer />
-    </>
+    </div>
   );
 }
 

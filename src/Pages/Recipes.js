@@ -14,7 +14,7 @@ function Recipes() {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col items-center">
       <Header titlePage="Meals" hasSearch />
       <Filter />
       <FoodCard
@@ -24,7 +24,7 @@ function Recipes() {
         typeCard="food"
       />
       <Footer />
-    </>
+    </div>
   );
 }
 
