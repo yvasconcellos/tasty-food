@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
@@ -93,70 +94,84 @@ function RecipesInProgress({
 
     && (
       <div
-        className="bg-slate-100"
+        className="bg-slate-100
+      "
       >
-        <img
-          className="w-screen
-          rounded-lg
-          "
-          data-testid="recipe-photo"
-          src={ dataRecipe[0].strMealThumb }
-          alt={ dataRecipe[0].strMeal }
-        />
         <div
-          className="d-flex justify-content-between
-          my-3
-          mx-2
-          "
+          className="md:flex
+      "
         >
           <div
-            className="mx-3"
+            className="md:w-1/3
+        "
           >
-            <p
-              data-testid="recipe-title"
-              className="text-3xl m-0"
-            >
-              {dataRecipe[0].strMeal}
-            </p>
-            <p data-testid="recipe-category">{dataRecipe[0].strCategory}</p>
-          </div>
-          <ShareAndFavorite
-            linkCopy={ pathname.replace('/in-progress', '') }
-            type="food"
-            id={ id }
-            area={ dataRecipe[0].strArea }
-            category={ dataRecipe[0].strCategory }
-            alcoholic=""
-            name={ dataRecipe[0].strMeal }
-            image={ dataRecipe[0].strMealThumb }
-            testid="share-btn"
-            favtestid="favorite-btn"
-          />
-        </div>
-        <ul
-          className="mx-4"
-        >
-          <p
-            className="text-2xl"
-          >
-            Ingredients
-          </p>
-          {ingredientData.map((ingredi, index) => (
-            <ListCheck
-              id={ id }
-              key={ index }
-              item={ ingredi }
-              index={ index }
-              onChange={ (e) => onHandleCheck(e) }
-              nameRecipe={ dataRecipe[0].strMeal }
+            <img
+              className="w-screen
+        rounded-lg
+        "
+              data-testid="recipe-photo"
+              src={ dataRecipe[0].strMealThumb }
+              alt={ dataRecipe[0].strMeal }
             />
-          ))}
-        </ul>
+          </div>
+          <div
+            className="flex justify-between md:w-2/3
+          md:justify-start
+          flex-col
+          my-3 mx-2"
+          >
+            <div className="flex justify-between mx-3">
+              <div>
+                <p
+                  data-testid="recipe-title"
+                  className="text-3xl m-0"
+                >
+                  {dataRecipe[0].strMeal}
+                </p>
+                <p data-testid="recipe-category">
+                  {dataRecipe[0].strCategory}
+                </p>
+              </div>
+              <ShareAndFavorite
+                linkCopy={ pathname }
+                type="food"
+                id={ id }
+                area={ dataRecipe[0].strArea }
+                category={ dataRecipe[0].strCategory }
+                alcoholic=""
+                name={ dataRecipe[0].strMeal }
+                image={ dataRecipe[0].strMealThumb }
+                testid="share-btn"
+                favtestid="favorite-btn"
+              />
+
+            </div>
+            <ul
+              className="mx-3 md:mx-0"
+            >
+              <p
+                className="text-2xl md:text-xl"
+              >
+                Ingredients
+              </p>
+              {ingredientData.map((ingredi, index) => (
+                <ListCheck
+                  id={ id }
+                  key={ index }
+                  item={ ingredi }
+                  index={ index }
+                  onChange={ (e) => onHandleCheck(e) }
+                  nameRecipe={ dataRecipe[0].strMeal }
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
         <div
           className="mx-3
-            text-justify
-            mb-12
-            "
+          mb-12
+        text-justify
+        "
         >
           <p
             className="text-2xl"
@@ -165,6 +180,7 @@ function RecipesInProgress({
           </p>
           <p
             data-testid="instructions"
+            className="md:text-sm"
           >
             {dataRecipe[0].strInstructions}
           </p>
