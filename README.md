@@ -14,7 +14,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 ### Deploy da aplicação
 
-<a href='https://trivia-time-tau.vercel.app/'> https://trivia-time-tau.vercel.app/ </a>
+<a href='https://tasty-food-chi.vercel.app/'> https://tasty-food-chi.vercel.app/ </a>
 
 ## 📫 Contribuindo para Tasty Food
 
